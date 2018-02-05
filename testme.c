@@ -5,14 +5,33 @@
 
 char inputChar()
 {
-    // TODO: 
-    return ' ';
+  char random_character;
+
+  /* Generate random character from the ASCII table 
+   * Range is max = 126 and min = 32 */
+  random_character = rand() % (126 + 1 - 32) + 32;
+
+  return random_character;
+
 }
 
 char *inputString()
 {
-    // TODO: 
-    return "";
+  int i;
+  char random_string[6]; memset(random_string, '\0', sizeof(random_string));
+
+  /* Generate random string using the pool characters */
+  char pool[] = "reset";
+
+  for(i = 0; i < sizeof(random_string); i++)
+  {
+	  random_string[i] = pool[rand() % (sizeof(pool) - 1)];
+  }
+
+  random_string[sizeof(random_string) - 1] = '\0';
+
+  return random_string;
+
 }
 
 void testme()
